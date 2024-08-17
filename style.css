@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Caveat&family=Clicker+Script&family=Lobster&family=Luxurious+Roman&family=Noto+Kufi+Arabic&family=Poppins:wght@200;300;400;500;600&family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root { 
+    --main-color: rgb(252, 133, 243) ;
+    --second-color: rgb(154, 164, 255) ;
+}
+body { 
+    background: black;
+    font-family: 'Exo 2', sans-serif;
+}
+.container { 
+    margin: 0 auto;
+    height :100vh;
+    max-width: 350px;
+    padding:  20px;
+}
+section { 
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: hidden;
+    background-color: black;
+}
+section.two,
+section.three { 
+   z-index: -1;
+}
+
+.hidden { 
+    display: none;
+}
+section.shwo { 
+    z-index: 1;
+    animation: rightToLeft 1s linear;
+}
+@keyframes rightToLeft {
+    0% { 
+        transform: translateX(100%);
+    }
+    100% { 
+        transform: translateX(0);
+    }
+}
+.card { 
+    max-width: 450px;
+    height: 75%;
+ overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+.card::before { 
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    background: linear-gradient(90deg,
+    rgba(12,212,238) 0%,rgba(220,39,252,1) 35%,
+    rgba(231,15,98,1) 100%);
+    animation: rotating 1.5s linear infinite;
+    filter: drop-shadow(0 0 40px rgba(231,15,98,1));
+}
+.card::after { 
+    content: '';
+    position: absolute;
+    background:black;
+    inset: 4px;
+
+}
+@keyframes rotating {
+    to { 
+        transform: rotate(360deg);
+    }
+}
+h2 { 
+    z-index: 3;
+    z-index: 3;
+    color: var(--second-color);
+    text-align: center;
+}
+h2 span { 
+    display: block;
+    text-align: center;
+    color: var(--main-color);
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+.card p { 
+    width: 100%;
+    color: var(--main-color);
+    z-index: 1;
+    text-align: center;
+    font-size: 30px;
+}
+.card button { 
+    color: #0091ff;
+    font-weight: bold;
+    background: black;
+    z-index: 3;
+    width: 50%;
+    font-size: 20px;
+    padding: 8px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 9px 0 #650f5d, inset 0 0 3px 0 #413c78;
+    cursor: pointer;
+    transition: .4s ease;
+}
+form { 
+z-index: 3;
+width: 80%;
+}
+label { 
+    color: var(--second-color);
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+input { 
+    margin-bottom: 20px;
+    background: none;
+    box-shadow: 0 0 1px 0 rgb(25, 102, 243);
+    outline: none;
+    border: none;
+    padding: 10px;
+    color: var(--main-color);
+    transition: 1s;
+    width: 90%;
+}
+input[type="submit"] { 
+    display: block;
+    width: 120px;
+    font-size: 20px;
+    margin-top: 20px;
+    color: var(--second-color);
+    cursor: pointer;
+}
+input:focus { 
+    box-shadow: 0 0 5px 0 var(--main-color);
+}
+.error { 
+ color: black;
+   
+}
+.error.run {
+    animation: change 3s  linear ;
+}
+@keyframes change {
+ 0%, 80% { 
+    color: rgb(159, 132, 255);
+  }
+  100% { 
+    color: black;
+  }
+}
+
+.three .box {
+    width: 95%;
+    height: 75%;
+    background: white;
+    z-index: 1;
+    position: relative;
+    perspective: 1000px;
+}
+.three .box .left { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(image/rehap-8.jpg);
+    background-position: center;
+    background-size: cover;
+    width:50%;
+    height: 100%;
+    transform-origin: left;
+    transition: 1s;
+}
+.three .box .right { 
+    background-image: url(image/rehap-7.jpeg);
+    background-position: center;
+    background-size: cover;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    transform: rotateY(-360deg);
+    transform: rotateY(0deg);
+    transform-origin: right;
+    transition:  1s;
+}
+.three .box .back { 
+    background-image: url(image/rehap-3.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: translateZ(-300px);
+    transition: .8s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.three .box .back h1 { 
+    color: blue;
+    text-align: center;
+    margin-top: 60px;
+    box-shadow: 0 0 9px 0 #868efb;
+    width: fit-content;
+    margin: 40px auto;
+    padding: 15px;
+    font-size: 25px;
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Caveat', cursive;
+    font-family: 'Clicker Script', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'Luxurious Roman', cursive;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Quintessential', cursive;
+    border-radius: 11px;
+    animation: colorChange 8s steps(3) infinite ;
+}
+@keyframes colorChange {
+    20% { 
+        color: red;
+    }  40% { 
+        color: rgb(69, 118, 210);
+    }  60% { 
+        color: rgb(140, 100, 250);
+    }  80% { 
+        color: rgb(255, 0, 170);
+    }
+    100% { 
+        color: rgb(255, 255, 255);
+    }
+}
+.box.effect .left { 
+    transform: rotateY(-360deg);
+}
+.box.effect .right { 
+    transform: rotateY(360deg);
+}
+.box.effect .back { 
+    transform: translateZ(0);
+    z-index: 1;
+}
+
